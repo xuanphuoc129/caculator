@@ -63,6 +63,7 @@ export class HomePage {
 
   clearResults() {
     this.results = [];
+    this.clear();
   }
 
   caculated() {
