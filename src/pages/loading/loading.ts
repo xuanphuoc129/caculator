@@ -34,6 +34,6 @@ export class LoadingPage {
   loading(){
     setTimeout(() => {
       this.navCtrl.setRoot(HomePage);
-    }, 500);
+    }, 1000);
   }
 }
