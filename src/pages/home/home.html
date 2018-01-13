@@ -1,0 +1,83 @@
+<ion-content>
+    <div class="a1-container">
+        <!-- input -->
+        <div class="a1-h-40 workspace">
+            <div class="input">
+                <div class="input-text">{{inputText}}</div>
+                <div class="result"><span *ngIf="result && result.length > 0">= </span>{{result}}</div>
+            </div>
+            <div class="history">
+                <div class="item-result" *ngFor="let r of results">{{r}}</div>
+            </div>
+            <div class="btn-clear" tappable (click)="clearResults()">clear</div>
+        </div>
+        <!-- keyboard -->
+        <div class="a1-h-60 operator ">
+            <div class="left">
+                <ion-row class="a-row-1">
+                    <ion-col col-4>
+                        <div class="a-button" (click)="clear()" tappable>
+                            <span style="color: orange">AC</span>
+                        </div>
+                    </ion-col>
+                    <ion-col col-4>
+                        <div class="a-button " (click)="delete()" tappable>
+                            <ion-icon name="caculator-backspace"></ion-icon>
+                        </div>
+                    </ion-col>
+                    <ion-col col-4>
+                        <div class="a-button " tappable (click)="addOperator('/')">
+                            <ion-icon name="caculator-division"></ion-icon>
+                        </div>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="a-row-3">
+                    <ion-col col-4 *ngFor="let item of numbers" tappable (click)="addNumber(item)">
+                        <div class="a-button">
+                            <span>{{item}}</span>
+                        </div>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="a-row-1">
+                    <ion-col col-8>
+                        <div class="a-button" tappable (click)="addNumber('0')">
+                            <span>0</span>
+                        </div>
+                    </ion-col>
+                    <ion-col col-4>
+                        <div class="a-button" tappable (click)="addNumber('.')">
+                            <span>.</span>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <!-- phép tính  -->
+            <div class="right">
+                <ion-row class="a-row-3">
+                    <ion-col col-12>
+                        <div class="a-button" tappable (click)="addOperator('*')">
+                            <ion-icon name="caculator-cross"></ion-icon>
+                        </div>
+                    </ion-col>
+                    <ion-col col-12>
+                        <div class="a-button" tappable (click)="addOperator('+')">
+                            <ion-icon name="caculator-plus"></ion-icon>
+                        </div>
+                    </ion-col>
+                    <ion-col col-12>
+                        <div class="a-button" tappable (click)="addOperator('-')">
+                            <ion-icon name="caculator-minus"></ion-icon>
+                        </div>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="a-balance">
+                    <ion-col col-12>
+                        <div class="a-button color" tappable (click)="caculated()">
+                            <span>=</span>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </div>
+    </div>
+</ion-content>

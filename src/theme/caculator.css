@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url('../assets/fonts/icomoon.eot?fmiaa5');
+    src: url('../assets/fonts/icomoon.eot?fmiaa5#iefix') format('embedded-opentype'), url('../assets/fonts/icomoon.ttf?fmiaa5') format('truetype'), url('../assets/fonts/icomoon.woff?fmiaa5') format('woff'), url('../assets/fonts/icomoon.svg?fmiaa5#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin makeIcon($arg,
+$val) {
+    .departure-#{$arg}:before,
+    .ion-ios-caculator-#{$arg}:before,
+    .ion-ios-caculator-#{$arg}-outline:before,
+    .ion-md-caculator-#{$arg}:before,
+    .ion-md-caculator-#{$arg}-outline:before {
+        content: $val;
+    }
+}
+
+@include makeIcon(cross,
+"\ea0f");
+@include makeIcon(division,
+"\e900");
+@include makeIcon(plus,
+"\ea0a");
+@include makeIcon(minus,
+"\ea0b");
+@include makeIcon(cross,
+"\ea0f");
+@include makeIcon(backspace,
+"\e901");

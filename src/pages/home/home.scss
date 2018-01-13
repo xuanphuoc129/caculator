@@ -1,0 +1,129 @@
+page-home {
+    $min-height: 6vh;
+    $padding: 6px;
+    $font-size: 2.4em;
+    .workspace {
+        background: map-get($map: $colors, $key: light);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        .item-result {
+            color: gray;
+            animation-duration: 300ms;
+            animation-fill-mode: both;
+            animation-name: slideInLeft;
+        }
+        @keyframes slideInLeft {
+            from {
+                transform: translate3d(-100%, 0, 0);
+                visibility: visible;
+            }
+            to {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        @keyframes pulse {
+            from {
+                transform: scale3d(1, 1, 1);
+            }
+            50% {
+                transform: scale3d(1.05, 1.05, 1.05);
+            }
+            to {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+        .btn-clear {
+            position: absolute;
+            right: 16px;
+            top: 32px;
+            text-transform: capitalize;
+            background: #1b1313;
+            padding: $padding $padding * 2;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 2px rgba($color: #000000, $alpha: 0.3);
+            transform: scale(1);
+            transition: 200ms;
+        }
+        .btn-clear:active {
+            transform: scale(.96);
+        }
+        .history {
+            position: absolute;
+            top: 32px;
+            left: 16px;
+            bottom: 20%;
+            overflow: auto;
+            width: 50%;
+        }
+        .input {
+            text-align: right;
+            padding: $padding * 2;
+            line-height: 2.8em;
+        }
+        .input-text {
+            color: black;
+            font-size: $font-size * 0.8;
+        }
+        .result {
+            color: orange;
+            font-size: $font-size * 0.8;
+            white-space: nowrap;
+        }
+    }
+    .operator {
+        position: relative;
+        background: whitesmoke;
+        display: flex;
+        justify-content: space-between;
+    }
+    .a-button {
+        background: white;
+        height: 100%;
+        width: 100%;
+        color: #1b1313;
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
+        -webkit-align-items: center;
+        justify-content: center;
+        -webkit-justify-content: center;
+        transition: 300ms ease-out;
+        &.color {
+            background: orange !important;
+            color: white !important;
+        }
+        span {
+            font-size: 1.6em;
+        }
+    }
+    .a-button:active {
+        background: rgb(236, 187, 95);
+    }
+    $rowHeight: 20%;
+    .col {
+        padding: 1px !important;
+    }
+    .a-row-1 {
+        height: $rowHeight;
+    }
+    .a-row-3 {
+        height: $rowHeight * 3;
+    }
+    .left {
+        height: 100%;
+        width: 75%;
+    }
+    .right {
+        height: 100%;
+        width: 25%;
+    }
+    .a-balance {
+        height: $rowHeight * 2;
+    }
+     ::-webkit-scrollbar {
+        display: none;
+    }
+}
