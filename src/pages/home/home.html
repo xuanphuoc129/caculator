@@ -4,7 +4,7 @@
         <div class="a1-h-40 workspace">
             <div class="input">
                 <div class="input-text">{{inputText}}</div>
-                <div class="result"><span *ngIf="result && result.length > 0">= </span>{{result}}</div>
+                <div class="result"><span *ngIf="result && result.length > 0">= </span>{{result | number}}</div>
             </div>
             <div class="history">
                 <div class="item-result" *ngFor="let r of results">{{r}}</div>

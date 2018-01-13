@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 @Component({
   selector: 'page-home',
@@ -11,13 +12,25 @@ export class HomePage {
   inputText: string = "0";
   result: string = "";
   results: Array<string> = [];
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public platform: Platform,public splashScreen: SplashScreen,
+    public navCtrl: NavController) {
     for (let i = 1; i < 10; i++) {
       this.numbers.push(i);
     }
   }
 
+  ionViewDidLoad(){
+    this.platform.ready().then(()=>{
+      this.splashScreen.hide();
+    })
+  }
+
   addNumber(item) {
+    if(this.newCaculate){
+      this.newCaculate = false;
+      this.clear();
+    }
     if (this.inputText == "0") {
       this.inputText = item;
       return;
@@ -31,7 +44,7 @@ export class HomePage {
 
   delete() {
     if (this.inputText == "0") return;
-    if (this.inputText.length == 1) {
+    if (this.inputText.length == 1 || this.newCaculate) {
       this.clear();
       return;
     }
@@ -65,11 +78,12 @@ export class HomePage {
     this.results = [];
     this.clear();
   }
-
+  newCaculate : boolean = false;
   caculated() {
     this.caculate();
     this.results.push(this.inputText + "=" + this.result);
     this.inputText = this.result;
     this.result = "";
+    this.newCaculate = true;
   }
 }

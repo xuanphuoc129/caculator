@@ -55,6 +55,8 @@ page-home {
         .input-text {
             color: black;
             font-size: $font-size * 0.8;
+            white-space: nowrap;
+            overflow: auto;
         }
         .result {
             color: orange;
