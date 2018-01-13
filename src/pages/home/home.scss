@@ -23,17 +23,6 @@ page-home {
                 transform: translate3d(0, 0, 0);
             }
         }
-        @keyframes pulse {
-            from {
-                transform: scale3d(1, 1, 1);
-            }
-            50% {
-                transform: scale3d(1.05, 1.05, 1.05);
-            }
-            to {
-                transform: scale3d(1, 1, 1);
-            }
-        }
         .btn-clear {
             position: absolute;
             right: 16px;
@@ -108,9 +97,15 @@ page-home {
     }
     .a-row-1 {
         height: $rowHeight;
+        .col {
+            height: 100%;
+        }
     }
     .a-row-3 {
         height: $rowHeight * 3;
+        .col {
+            height: 33.33333333333%;
+        }
     }
     .left {
         height: 100%;
@@ -122,8 +117,11 @@ page-home {
     }
     .a-balance {
         height: $rowHeight * 2;
+        .col {
+            height: 100%;
+        }
     }
-     ::-webkit-scrollbar {
-        display: none;
-    }
+    //  ::-webkit-scrollbar {
+    //     display: none;
+    // }
 }
